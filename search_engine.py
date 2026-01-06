@@ -14,6 +14,9 @@ def run_search(
     page_size: int = 9
 ) -> dict:
 
+    # 🔒 Proteção contra páginas inválidas
+    page = max(page, 1)
+
     if not query or not query.strip():
         return {"results": [], "total": 0}
 

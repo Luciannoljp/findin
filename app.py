@@ -1,7 +1,6 @@
 import os
 from flask import Flask, request, jsonify, render_template
 from search_engine import run_search
-from config import Config
 
 app = Flask(
     __name__,
