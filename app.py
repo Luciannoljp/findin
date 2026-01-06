@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify, render_template
 from search_engine import run_search
 from config import Config
@@ -39,4 +40,8 @@ def search():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Porta dinâmica para produção (Render)
+    port = int(os.environ.get("PORT", 5000))
+
+    # debug=False é obrigatório em produção
+    app.run(host="0.0.0.0", port=port, debug=False)
